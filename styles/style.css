@@ -3,6 +3,9 @@ body {
     background-color: #fdf5e6;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 header {
@@ -11,6 +14,7 @@ header {
     padding: 10px;
     border-radius: 5px;
     width: 80%;
+    max-width: 1200px;  /* Ancho máximo del header */
     margin: 0 auto;
     margin-top: 10px;
 }
@@ -23,11 +27,15 @@ header h1 {
 
 main {
     padding: 10px;
+    width: 80%;
+    max-width: 1200px;  /* Mismo ancho máximo que el header */
 }
 
 main section {
     padding: 10px;
     border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
 }   
 
 main section h2 {
@@ -42,12 +50,20 @@ main section p {
 }
 
 main button {
-    margin: 0 auto;
-    display: block;
+    /* Posicionamiento */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Dimensiones y estilo */
+    width: 200px;  /* Ancho fijo */
     background-color: #ffb6c1;
     color: #fff;
-    padding: 30px 50px 30px 50px;
+    padding: 30px 50px;
     border-radius: 5px;
+    
+    /* Tipografía */
     font-size: 18px;
     font-weight: bold;
     text-align: center;
