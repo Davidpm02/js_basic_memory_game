@@ -11,6 +11,7 @@ $(document).ready(function() {
         setTimeout(function() {
             // Redirigir a la página del juego
             window.location.href = 'templates/game_template.html'; // Cambia 'game.html' por la URL de tu página de juego
-        }, 1500); // 1.5 segundos, ajusta según la duración de tu animación
+        }, 500); // .5 segundos, ajusta según la duración de tu animación
     });
 });
+
