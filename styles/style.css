@@ -1,3 +1,10 @@
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #fdf5e6;
@@ -6,17 +13,25 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden; /* Evitar scroll horizontal durante animaciones */
 }
 
+/* Estructura principal */
+.page-content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px 20px 0 20px; /* Eliminar padding inferior para el footer */
+}
+
+/* Header */
 header {
     background-color: #73847f;
     color: #fff;
-    padding: 10px;
+    padding: 20px;
     border-radius: 5px;
-    width: 80%;
-    max-width: 1200px;  /* Ancho máximo del header */
-    margin: 0 auto;
-    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 header h1 {
@@ -25,14 +40,21 @@ header h1 {
     text-align: center;
 }
 
+/* Main content */
 main {
-    padding: 10px;
-    width: 80%;
-    max-width: 1200px;  /* Mismo ancho máximo que el header */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 main section {
-    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px;
     border-radius: 5px;
     width: 100%;
     box-sizing: border-box;
@@ -49,85 +71,45 @@ main section p {
     text-align: left;
 }
 
-main button {
-    /* Posicionamiento */
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
-    /* Dimensiones y estilo */
-    width: 200px;  /* Ancho fijo */
+/* Button styles */
+#start-button {
     background-color: #ffb6c1;
-    color: #fff;
-    padding: 30px 50px;
+    color: white;
+    padding: 20px 40px;
+    border: none;
     border-radius: 5px;
-    
-    /* Tipografía */
     font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-}
-
-main button:hover {
-    background-color: #fccad1;
-    color: #fff;
     cursor: pointer;
+    width: 200px;
 }
 
+#start-button:hover {
+    background-color: #fccad1;
+}
+
+/* Footer */
 footer {
     background-color: #73847f;
-    color: #fff;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    color: white;
+    padding: 20px;
+    margin-top: auto;
+    width: 100vw;
+    margin-left: -20px; /* Compensar el padding del page-content */
 }
 
 footer p {
-    font-size: 16px;
     text-align: center;
 }
 
-/* Estilos para la animación de transición */
-.page-container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 100%;
+/* Estados ocultos por defecto */
+.hidden {
+    display: none;
+}
+
+/* Contenedor principal para mantener el contexto de las animaciones */
+.screens-container {
+    position: relative;
     width: 100%;
-    overflow: hidden;
-}
-
-.page-content {
-    height: 100%;
-    width: 100%;
-}
-
-/* Clase de animación */
-.animate_content {
-    animation: animate 2s ease;
-}
-
-@keyframes animate {
-    10% {
-        transform: scale(1, 0.002);
-    }
-    35% {
-        transform: scale(0.2, 0.002);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(0.2, 0.002);
-        opacity: 0;
-    }
-    85% {
-        transform: scale(1, 0.002);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1, 1);
-    }
+    height: 100vh;
+    perspective: 1000px; /* Añade profundidad al efecto 3D */
 }

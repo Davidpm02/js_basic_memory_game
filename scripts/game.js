@@ -1,11 +1,17 @@
 // REFERENCIAS
-let back_button = document.getElementById('back_btn')
+let back_button = document.getElementById('back_btn');
 
-back_button.addEventListener('click', function() {
-    
-    
-    setTimeout(function() {
-        // Redirigir a la página principal
-        window.location.href = '../index.html'; // Cambia 'index.html' por la URL de tu página principal
-    }, 500); // .5 segundos, ajusta según la duración de tu animación
-})
+$(document).ready(function() {
+    // Mostrar directamente la página, sin animación de entrada
+    $('.page-container').removeClass('initial-hidden');
+    $('body').removeClass('in-transition');
+
+    $('#back_btn').click(function(event) {
+        event.preventDefault();
+        $('body').addClass('in-transition');
+        $('.page-container').addClass('slide-out-right');
+        setTimeout(() => {
+            window.location.href = '../index.html';
+        }, 400);
+    });
+});

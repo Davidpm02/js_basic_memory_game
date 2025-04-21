@@ -1,0 +1,116 @@
+/* Asegurar que el contenedor base no tenga scroll */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.page-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Usar viewport width */
+    height: 100vh;
+    overflow: hidden;
+    background-color: #fdf5e6;
+}
+
+.page-content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Estado inicial oculto */
+.initial-hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* Añadir clase de transición */
+.in-transition {
+    pointer-events: none !important;
+}
+
+/* Animaciones */
+.slide-out-left {
+    animation: slideOutLeft 0.4s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    pointer-events: none;
+}
+
+.slide-out-right {
+    animation: slideOutRight 0.4s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    pointer-events: none;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.4s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.4s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+}
+
+@keyframes slideOutLeft {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-100%) rotate(-10deg);
+        opacity: 0;
+    }
+}
+
+@keyframes slideOutRight {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%) rotate(10deg);
+        opacity: 0;
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%) rotate(10deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%) rotate(-10deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+}
+
+#preload-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
