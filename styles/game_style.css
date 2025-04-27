@@ -31,7 +31,7 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: 60%;
 }
 
 /* Estilos para los elementos dentro del juego */
@@ -102,17 +102,92 @@ figure {
 }
 
 button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #ffb6c1;
+  padding: 20px 40px;
+  background-color: #ffb6c1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 24px;
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+button:hover {
+    background-color: #fccad1;
+}
+
+
+
+/* Media Querys */
+
+@media only screen and (max-width: 999px) {
+  .level_chice_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+  }
+
+  .level_chice_container figure {
+    width: 80%; /* Cada selector ocupa el 80% del ancho */
+    height: 300px; /* Aumentar la altura de los selectores */
+    margin-bottom: 20px; /* Espaciado entre los selectores */
+  }
+
+  .easy_level_figure img {
+    content: url(../styles/images/maximum_999px/gray/easy.png);
+  }
+  
+  .medium_level_figure img {
+    content: url(../styles/images/maximum_999px/gray/medium.png);
+  }
+  
+  .hard_level_figure img {
+    content: url(../styles/images/maximum_999px/gray/hard.png);
+  }
+
+  .easy_level_figure:hover img {
+    content: url(../styles/images/maximum_999px/hover/easy.png);
+    transform: scale(1.1); /* Reducir la expansión */
+  }
+  
+  .medium_level_figure:hover img {
+    content: url(../styles/images/maximum_999px/hover/medium.png);
+    transform: scale(1.1); /* Reducir la expansión */
+  }
+  
+  .hard_level_figure:hover img {
+    content: url(../styles/images/maximum_999px/hover/hard.png);
+    transform: scale(1.1); /* Reducir la expansión */
+  }
+
+  figure figcaption {
+    clip-path: inset(0 var(--_i, 100%) 0 0); /* Animación de barrido */
+  }
+
+  figure:hover figcaption {
+    --_i: 0%; /* Activar la animación al pasar el ratón */
+  }
+
+  #back_btn {
+    padding: 5px 10px;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    /* Elimina width y height si no son necesarios */
+    /* width: auto; */
+    /* height: auto; */
+    max-width: 200px;
+    max-height: 60px;
+    box-sizing: border-box;
+    z-index: 1000;
+  }
 }
-
-button:hover {
-    background-color: #fccad1;
-} 
